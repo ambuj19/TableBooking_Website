@@ -1,0 +1,12 @@
+body, html{
+    height: 100%;
+    margin: 0;
+    /* background: url(https://images.unsplash.com/photo-1639826909363-f7a7a2f77991?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1780&q=80);
+    min-height: 100%; */
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;  
+  
+  }
+  

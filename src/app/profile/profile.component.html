@@ -1,0 +1,114 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Welcome</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/aboutus">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/gallery">Gallery</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/reservation">Reservation</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="flex-container rounded bg-white mt-5 mb-4">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Ambuj</span><span class="text-black-50">ambuj@gmail.com</span><span> </span></div>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right"> Submit Your Profile to Us</h4>
+                    </div>
+                    <form [formGroup]="userprofileForm" (ngSubmit)="onSubmit()" id="login-form">
+                        <div class="mb-3">
+                            <label for="firstname1" class="form-label" style="font-weight: bold;">First Name</label>
+                            <input type="text" class="form-control" id="firstname1" formControlName="firstname" required>
+                            <small *ngIf="eform['firstname'].touched && eform['firstname'].invalid" class="text-danger">First Name is Required</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastname1" class="form-label" style="font-weight: bold;">Last Name</label>
+                            <input type="text" class="form-control" id="lastname1" formControlName="lastname">
+                        </div>
+        
+                        
+                            <h3>Address</h3>
+                            <label for="Country" class="form-label" style="font-weight: bold;">Country</label>
+                            <input type="text" class="form-control" id="country1" formControlName="country">
+                            
+                            <label for="State" class="form-label" style="font-weight: bold;">State</label>
+                            <input type="text" class="form-control" id="state1" formControlName="state">
+                            <label for="City" class="form-label" style="font-weight: bold;">City</label>
+                            <input type="text" class="form-control" id="city1" formControlName="city"><br>
+        
+                        
+                        <button type="submit" class="btn btn-primary" [disabled]="!userprofileForm.valid">Submit</button>
+        
+                    </form>
+                    
+                </div>
+            </div>
+            <div class="container" >
+                <h2>Table Booking Details</h2>
+                <table class="table table-striped table-hover">
+                   <thead>
+                      <tr>
+                         <th>Firstname</th>
+                         <th>Lastname</th>
+                         
+                         
+                         <th>Country</th>
+                         <th>State</th>
+                         <th>City</th>
+                      </tr>
+                   </thead>
+                   <tbody>
+                      <tr *ngFor="let item of listdata">
+                          
+                         <th >{{ item.firstname }}</th>
+                         <td>{{ item.lastname }}</td>
+                         <td>{{ item.country }}</td>
+                         <td>{{ item.state }}</td>
+                         <td>{{ item.city }}</td>
+                         <!-- <td><span *ngIf="item.Booked==true" style="background-color: violet;">{{item.Booked}}</span></td> -->
+                        
+                         <!-- <span *ngIf="item.Booked==true" else elseblock style="background-color: lawngreen;"></span> -->
+                         
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+        </div>
+    </div>
+    <footer style="background-color: white;">
+        <font color="black">
+            &copy;Reserved 2021</font> <br>
+        
+       <p align="center">Made with <i class="fa fa-heart pulse"></i> in India</p> 
+
+    </footer>  
+</body>
